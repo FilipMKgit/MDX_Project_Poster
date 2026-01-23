@@ -1,0 +1,170 @@
+---
+title: Statistical Design and Analysis of a Non-Inferiority Clinical Trial- BioMimics 3D Vascular Stent
+author:
+  - name: Áine Glynn
+  - name: Filip Kłosowski
+    affil: 1
+affiliation:
+  - num: 1
+    address: School of Mathematical and Statistical Sciences, University of Galway
+logoleft_name: logo2UG.png
+
+
+poster_height: "594mm"
+poster_width: "841mm"
+column_numbers: 4
+column_margins: "0.5in"	
+primary_colour:	"#2E7D32"	# Secondary colour use for poster design.
+secondary_colour:	"#a80050"	# Main colour used for poster design.
+accent_colour:	"#a80050"	# A third colour option.
+author_textcol: "white"
+title_textsize: "80pt"
+author_textsize: "50pt"
+body_textsize: "25pt"
+output: 
+  posterdown::posterdown_html:
+    self_contained: true
+    pandoc_args: --mathjax
+    number_sections: false
+knit: pagedown::chrome_print
+---
+
+```{css, echo=FALSE}
+
+.logo-left img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+div.poster_title{
+  width: 80%;
+  text-align: center;
+}
+.section h4 {
+  break-after: column;
+}
+div.footnotes {
+  font-size: 18pt;
+}
+
+img.stent_banner{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  opacity: 0.85;
+  margin: 8mm 0 6mm 0;
+  display: block;
+}
+
+img.margin-jinn-logo{
+  display: block;
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+  margin: 10mm auto 0 auto;
+  opacity: 0.95;
+}
+
+
+
+
+```
+
+<!-- Don't change anything above, except the title and author names, unless you know what you are doing. -->
+
+<!-- I chose green for primary colour because maroon was the default so some people might stay with it, and then the next most obvious colour is blue as it's very techy/ mathematical so I expect to see a lot of blue posters. To stand out I chose green, it's also very pleasant for the eye. Let me know what you think -->
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      fig.align = 'center',
+                      out.width = "100%")
+options(knitr.table.format = "html") 
+# Load any additional libraries here
+library(tidyverse)
+library(plotly)
+library(kableExtra)
+```
+
+
+# Background and Problem 
+
+
+
+
+
+
+## Objectives of Project 
+
+1. To define and justify a non-inferiority margin for a BioMimics 3D stent using historical and published evidence.
+2. To develop statistically appropriate non-inferiority trial design parameters from a bio statistical perspective.
+3. Develop a Shiny app to determine and visualize different sample size requirements under varying design assumptions and inferiority margins.
+4. To analyse and interpret simulated trial data and evaluate non-inferiority conclusions.
+6. To critically reflect on the limitations and assumptions inherent to non-inferiority designs.
+
+
+# Definitions
+
+
+
+
+
+
+<!-- You can change where you put these breaks, and the "column_numbers: 4" argument in the YAMLS header to change the layout of the poster, with care! -->
+
+#### 
+<!-- This #### above causes the columns to break -->
+<!-- this might be a very long section, so maybe full column is needed? -->
+
+# Case-study: Biomimics 3D stent
+
+what is it
+
+
+
+<img src="bm3d_horizontal.png" class="stent_banner">
+
+
+
+## Meta-analysis
+
+maybe include image of plot?
+
+
+####
+
+continued
+
+
+
+####
+# Margin-Jinn
+
+Margin-Jinn is an interactive Shiny application developed as part of our project in order to support the statistical planning of non-inferiority clinical trials. The application enables visual exploration of sample size requirements across several different design parameters. Through dynamic plots and real-time updates, the app highlights the sensitivity of sample size modelling assumptions that are often fixed or under-examined during trial planning.
+
+In our project Margin-Jinn is applied to the BioMimics 3D vascular stent to explore, justify and critically assess sample size choices under realistic design scenarios, reflecting the role of statistical decision-making in early-stage clinical trial design.
+
+<!-- Temporary logo, will change soon -->
+
+<img src="margin-jinn.jpg" class="margin-jinn-logo">
+
+https://github.com/FilipMKgit/Margin-Jinn
+
+
+# Next Project Steps
+
+- Extend the BioMimics 3D case-study through simulation of non-inferiority trial data under realistic design assumptions.
+- Analyse simulated trial outcomes to assess non-inferiority conclusions for the proposed stent design.
+- Further explore the assumptions, limitations, and interpretational caveats inherent to non-inferiority clinical trials.
+
+
+
+# References
+
+
+
