@@ -1,7 +1,8 @@
 ---
-title: Statistical Design and Analysis of a Non-Inferiority Clinical Trial- BioMimics 3D Vascular Stent
+title: Statistical Design and Analysis of a Non-Inferiority Clinical Trial
 author:
   - name: Áine Glynn
+    affil: 1
   - name: Filip Kłosowski
     affil: 1
 affiliation:
@@ -41,9 +42,11 @@ div.poster_title{
   width: 80%;
   text-align: center;
 }
+
 .section h4 {
   break-after: column;
 }
+
 div.footnotes {
   font-size: 18pt;
 }
@@ -65,6 +68,7 @@ img.margin-jinn-logo{
   margin: 10mm auto 0 auto;
   opacity: 0.95;
 }
+
 
 
 
@@ -92,79 +96,74 @@ library(kableExtra)
 ```
 
 
-# Background and Problem 
+# Background
 
-intro text here
+Non-inferiority (NI) trials are increasingly used in clinical research, particularly when placebo control is unethical. Despite their widespread adoption, NI trials are frequently misdesigned and misinterpreted, often due to poorly justified margins, inappropriate control selection and misunderstanding of statistical conclusions. This combination of issues may lead to misleading evidence with consequences for clinicians, regulators and the wider public.
 
+## What is a Non-inferiority Trial?
+A non-inferiority trial aims to demonstrate that a new treatment is not unacceptably worse than an active control by more than a pre-specified margin (Δ). NI is concluded if the estimated treatment effect and its confidence interval lie entirely within this margin.
 
+The NI margin must be justified on both clinical and statistical grounds, preserving a clinically meaningful proportion of the control treatment’s established effect.
 
-
-## Objectives of Project 
-
-1. To define and justify a non-inferiority margin for a BioMimics 3D stent using historical and published evidence.
-2. To develop statistically appropriate non-inferiority trial design parameters from a bio statistical perspective.
+## Aims & Objectives
+1. To define and justify an NI margin for the case study using historical and published evidence.
+2. To develop statistically appropriate NI trial design parameters from a bio statistical perspective.
 3. Develop a Shiny app to determine and visualize different sample size requirements under varying design assumptions and inferiority margins.
-4. To analyse and interpret simulated trial data and evaluate non-inferiority conclusions.
-6. To critically reflect on the limitations and assumptions inherent to non-inferiority designs.
-
-
-# Definitions
-
-yoyo
-
+4. To analyse and interpret simulated trial data and evaluate NI conclusions.
+5. To critically reflect on the limitations and assumptions inherent to NI designs.
 
 
 
 <!-- You can change where you put these breaks, and the "column_numbers: 4" argument in the YAMLS header to change the layout of the poster, with care! -->
-
-#### 
 <!-- This #### above causes the columns to break -->
 <!-- this might be a very long section, so maybe full column is needed? -->
 
 # Case-study: Biomimics 3D stent
 
-what is it
-
-
+We will use a simulated 2008 clinical and regulatory setting to examine the statistical design of a pivotal NI trial for the BioMimics 3D vascular stent. The case study is based on the original development of the device, led by Kevin Heraty, lead scientist on BioMimics 3D.
 
 <img src="bm3d_horizontal.png" class="stent_banner">
 
+The BioMimics 3D stent is a peripheral vascular stent implanted in the leg or arm to improve blood flow in patients with peripheral vascular disease (narrowing of the the peripheral blood vessels). Unlike conventional straight stents, it features a three-dimensional helical design, intended to improve vascular performance and blood flow patterns in the affected areas.
 
+To reflect a real-world trial planning scenario, we meet with Kevin Heraty to discuss key statistical decisions, including endpoint selection, performance goals, and sample size requirements. This ensures the statistical design is informed by clinical and device-specific considerations.
 
-## Meta-analysis
-
-maybe include image of plot?
-
-
-####
-
-continued
-
+The BioMimics 3D stent is treated as the investigational device in a hypothetical NI trial, with established peripheral stents used as the active control. Evidence available from up till 2008 is used to guide the design, and simulated trial data will be used to assess non-inferiority conclusions and highlight common sources of misinterpretation.
 
 
 ####
+# Meta-Analysis & Evidence base
+
+<h3>Evidence-Based Safety Performance Goals (30 Days)</h3>
+
+<img src="table1.jpg"
+  style="width:100%;">
+
+<h3>Evidence-Based Efficacy Performance Goals (12 Months)</h3>
+
+<img src="table2.jpg"
+  style="width:100%;">
+
+TEXT TEXT  TEXT
+
+
 # Margin-Jinn
+Margin-Jinn is an interactive Shiny application we developed as a part of this project in order to support statistical planning for NI trials. The app supports visual exploration of sample size requirements across different assumptions, highlighting the sensitivity of NI designs to choices that are often fixed or under-examined during trial planning.
 
-Margin-Jinn is an interactive Shiny application developed as part of our project in order to support the statistical planning of non-inferiority clinical trials. The application enables visual exploration of sample size requirements across several different design parameters. Through dynamic plots and real-time updates, the app highlights the sensitivity of sample size modelling assumptions that are often fixed or under-examined during trial planning.
+In this study, Margin-Jinn is applied to the BioMimics 3D case study to justify and critically assess sample size decisions under realistic design scenarios.
 
-In our project Margin-Jinn is applied to the BioMimics 3D vascular stent to explore, justify and critically assess sample size choices under realistic design scenarios, reflecting the role of statistical decision-making in early-stage clinical trial design.
+<img src="margin-jinn_logo_2.png" class="margin-jinn-logo"> WIP LOGO
 
-<!-- Temporary logo, will change soon -->
-
-<img src="margin-jinn.jpg" class="margin-jinn-logo">
-Find Margin-Jinn on github::
+GitHub:
 https://github.com/FilipMKgit/Margin-Jinn
 
+# Next Steps
 
-# Next Project Steps
-
-- Extend the BioMimics 3D case-study through simulation of non-inferiority trial data under realistic design assumptions.
-- Analyse simulated trial outcomes to assess non-inferiority conclusions for the proposed stent design.
-- Further explore the assumptions, limitations, and interpretational caveats inherent to non-inferiority clinical trials.
-
+- Extend the BioMimics 3D case-study through simulation of non-inferiority trial data.
+- Analyse simulated trial outcomes to assess NI conclusions.
+- Further explore the assumptions, limitations, and interpretational caveats inherent to NI trials.
 
 
 # References
 
-
-
+TEXT TEXT TEXT
