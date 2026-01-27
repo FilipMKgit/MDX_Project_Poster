@@ -97,16 +97,19 @@ library(kableExtra)
 
 
 # Background
+Non-Inferiority (NI) trials are becoming increasingly relevant in clinical research (have ref.). Yet, NI trials are frequently poorly designed and interpreted. Confusion arises around NI margins, active control selection, and statistical conclusions. This leads to detrimental consequences on the manufacturers, clinicians, and the wider public.
 
-Non-inferiority (NI) trials are increasingly used in clinical research, particularly when placebo control is unethical. Despite their widespread adoption, NI trials are frequently misdesigned and misinterpreted, often due to poorly justified margins, inappropriate control selection and misunderstanding of statistical conclusions. This combination of issues may lead to misleading evidence with consequences for clinicians, regulators and the wider public.
+## What is a Non-Inferiority Trial?
+- **Non-Inferiority Trials:** Clinical studies designed to demonstrate a new treatment is not clinically worse than an active control by more than a pre-specified margin (FDA).
 
-## What is a Non-inferiority Trial?
-A non-inferiority trial aims to demonstrate that a new treatment is not unacceptably worse than an active control by more than a pre-specified margin (Δ). NI is concluded if the estimated treatment effect and its confidence interval lie entirely within this margin.
+- **Non-Inferiority Margin (Δ):** Pre-specified & approved threshold the new treatment must meet to prove it preserves a clinically meaningful portion of the active control's effect (2).
 
-The NI margin must be justified on both clinical and statistical grounds, preserving a clinically meaningful proportion of the control treatment’s established effect.
+- NI Trials typically run like a randomised control trial but comparing the new treatment with an **active control-** an established standard of care used, instead of a placebo.
+
+- Non-inferiority must show the new treatment’s estimated effect, along with its confidence interval, lies within the pre-specified non-inferiority margin.
 
 ## Aims & Objectives
-1. To define and justify an NI margin for the case study using historical and published evidence.
+1. To define and justify Δ for the case study using historical and published evidence.
 2. To develop statistically appropriate NI trial design parameters from a bio statistical perspective.
 3. Develop a Shiny app to determine and visualize different sample size requirements under varying design assumptions and inferiority margins.
 4. To analyse and interpret simulated trial data and evaluate NI conclusions.
@@ -119,36 +122,41 @@ The NI margin must be justified on both clinical and statistical grounds, preser
 <!-- this might be a very long section, so maybe full column is needed? -->
 
 # Case-study: Biomimics 3D stent
+It is 2008 and we have just been hired as statisticians for BioMimics 3D Vascular Stent’s pivotal NI trial:
 
-We will use a simulated 2008 clinical and regulatory setting to examine the statistical design of a pivotal NI trial for the BioMimics 3D vascular stent. The case study is based on the original development of the device, led by Kevin Heraty, lead scientist on BioMimics 3D.
+<img src="BM3D_image.png" style="width:30%; display:block; margin:10px auto;">
 
-<img src="bm3d_horizontal.png" class="stent_banner">
+The BioMimics 3D stent is a peripheral vascular stent implanted in the leg or arm to improve blood flow in patients with peripheral vascular disease (narrowing of the peripheral blood vessels). Unlike conventional straight stents, it features a three-dimensional helical design, intended to improve vascular performance and blood flow in affected vessels.
 
-The BioMimics 3D stent is a peripheral vascular stent implanted in the leg or arm to improve blood flow in patients with peripheral vascular disease (narrowing of the the peripheral blood vessels). Unlike conventional straight stents, it features a three-dimensional helical design, intended to improve vascular performance and blood flow patterns in the affected areas.
+Our research project involves meeting with Kevin Heraty, BioMimic’s lead scientist, to design & interpret this NI trial from a statistician’s perspective.
+This includes:
 
-To reflect a real-world trial planning scenario, we meet with Kevin Heraty to discuss key statistical decisions, including endpoint selection, performance goals, and sample size requirements. This ensures the statistical design is informed by clinical and device-specific considerations.
+- Defining and justifying the safety & efficacy endpoint.
 
-The BioMimics 3D stent is treated as the investigational device in a hypothetical NI trial, with established peripheral stents used as the active control. Evidence available from up till 2008 is used to guide the design, and simulated trial data will be used to assess non-inferiority conclusions and highlight common sources of misinterpretation.
+- Ensuring a statistically powered and ethical trial.
+
+- Deciding on valid analysis methods.
+
+- Correctly interpreting and communicating the results.
 
 
-####
 # Meta-Analysis & Evidence base
 
 <h3>Evidence-Based Safety Performance Goals (30 Days)</h3>
 
-<img src="table1.jpg"
+<img src="plot1.png"
   style="width:100%;">
 
 <h3>Evidence-Based Efficacy Performance Goals (12 Months)</h3>
 
-<img src="table2.jpg"
+<img src="plot2.png"
   style="width:100%;">
 
-TEXT TEXT  TEXT
+To determine appropriate safety and efficiency endpoints for The Biomimics Pivotal study we conducted a targeted literature review of clinical trials previously run involving peripheral vascular devices (referenced below). This included a meta-analysis which we analysed & utilized at an individual participant data (IPD) level to justify our chosen endpoints.
 
 
 # Margin-Jinn
-Margin-Jinn is an interactive Shiny application we developed as a part of this project in order to support statistical planning for NI trials. The app supports visual exploration of sample size requirements across different assumptions, highlighting the sensitivity of NI designs to choices that are often fixed or under-examined during trial planning.
+Margin-Jinn is an interactive Shiny application we developed as a part of our project to support statistical planning for NI trials.The app allows users to explore how sample size requirements change under different design assumptions, including the choice of confidence-interval method, highlighting how these decisions can influence NI conclusions.
 
 In this study, Margin-Jinn is applied to the BioMimics 3D case study to justify and critically assess sample size decisions under realistic design scenarios.
 
