@@ -161,7 +161,7 @@ make_col_table <- function(df, header_col, body_col) {
 # Background 
 Non-Inferiority (NI) trials are increasingly used in clinical research, especially when the placebo is unethical and when new treatments aim for similar efficacy with other advantages [^1][^2]. However, they are frequently poorly designed and interpreted. Confusion arises around the specification of NI margins, selection of appropriate active controls and interpretation of statistical conclusions. This may lead to adverse consequences for manufacturers, clinicians and the wider public.
 
-*What is a Non-Inferiority Trial?*
+***What is a Non-Inferiority Trial?***
 
 - **Non-Inferiority Trials:** Clinical studies designed to demonstrate a new treatment is not clinically worse than an active control by more than a pre-specified margin.
 
@@ -198,9 +198,9 @@ It's 2008 and we have just been hired as statisticians for BioMimics 3D Vascular
 
 The BioMimics 3D stent is a peripheral vascular stent implanted in the leg to improve blood flow in patients with peripheral vascular disease (narrowing of the peripheral blood vessels). Unlike conventional straight stents, it features a 3D helical design, intended to improve vascular performance and blood flow to affected vessels.
 
-From a statistical perspective, this study is a single arm trial evaluated against a fixed Performance Goal (PG) yet many of the same principles of an NI trial apply. Such trials are commonplace for demonstrating NI in medical devices due to cost, extended timelines and challenges with recruitment and blinding. Strictly speaking they are no different than a single arm trial against a fixed endpoint. The similarity to an NI trial is that the endpoint *(i.e. the PG)* is chosen to represent a ‘worst case’ for safety (or efficacy) to claim NI. As such, many NI trials reported are actually single arm trials with a performance goal.
+From a statistical perspective, this study is a single arm trial evaluated against a fixed Performance Goal (PG). Such trials are commonplace for demonstrating NI in medical devices due to cost, extended timelines and challenges with recruitment and blinding. Strictly speaking they are no different than a single arm trial against a fixed endpoint. The similarity to an NI trial is that the endpoint *(i.e. the PG)* is chosen to represent a ‘worst case’ for safety (or efficacy) to claim NI. As such, many NI trials reported are actually single arm trials with a PG.
 
-We derived the PG and the corresponding NI margins by settings safety and efficacy endpoints using a targeted literature review and previous meta-analysis [^3][^4][^5]. This was done using IPA statistics and applying a random-effects model.
+We derived the PG and the corresponding NI margins by settings safety and efficacy endpoints using a targeted literature review and previous meta-analysis[^3][^4][^5]. This was done using IPA statistics and applying a random-effects model.
 
 [^3]: FDA, 2022. , 2016 https://www.fda.gov/media/78504/download
 [^4]: Werk et al. , 2008. , doi: 10.1161/CIRCULATIONAHA.107.735985
@@ -244,10 +244,10 @@ make_col_table(
 ```
 
 # Sample Size
-The sample size was calculated for the safety outcome.  Based on an estimated safety proportion of 0.95 a sample size of n = 219 had 90% power based on a one-sided test for a binomial at the $\alpha=0.025$ significance level to declare NI against a PG for safety of 0.89. The sample size was determined via Monte Carlo simulation using a Wilson exact test for a binomial.
+The sample size was calculated for the safety outcome.  Based on an estimated safety proportion of 0.95 a sample size of n = 174 had 80% power based on a one-sided test for a binomial at the $\alpha=0.025$ significance level to declare NI against a PG for safety of 0.89. The sample size was determined via Monte Carlo simulation using a Wilson score CI-based decision rule.
 
 ## Shiny Application
-As part of the sample size calculation we created an interactive Shiny application to support statistical planning for this trial and future trials of the same nature. The app allows users to explore how sample size requirements vary under different design assumptions, including power, significance level, effect size, and choice of CI method.
+As part of the sample size calculation we developed an interactive Shiny application to support statistical planning for this trial and future trials of the same nature. The application allows users to explore how sample size requirements vary under different design assumptions, including power, significance level, effect size, and choice of CI method.
 
 <img src="appsc.JPG"
      style="
@@ -261,20 +261,10 @@ As part of the sample size calculation we created an interactive Shiny applicati
        padding:6px;
        filter: brightness(1.05) contrast(1.05);
      ">
+     
+The application supports multiple CI–based decision rules. Exploratory analyses within the app were used to compare alternative methods and assess their impact on NI conclusions and required sample size. The Wilson score  CI approach was ultimately selected based on these analyses.
 
-
-There are multiple approaches to derive interval estimates for proportions (e.g. Clopper–Pearson, Wilson, Agresti–Coull) each resulting in different width in the corresponding confidence intervals. This helps identify which approach may be optimal depending on the design parameters for the trial in question.
-
-# GitHub
-
-Shiny:
-
-<a href="https://github.com/FilipMKgit/Margin-Jinn">github.com/FilipMKgit/Margin-Jinn</a>
-
-Poster:
-
-<a href="https://github.com/FilipMKgit/MDX_Project_Poster">github.com/FilipMKgit/MDX_Project_Poster</a>
-
+####
 
 # Next Steps
 - Carry out an extensive simulation study to compare the different approaches available to generate a CI for a population proportion in single arm medical device trials. 
@@ -286,5 +276,14 @@ Poster:
 - Finalise a Statistical Analysis Plan (SAP) specifying endpoints, estimators, CI methods, and NI decision rules prior to data unblinding.
 
 - Conduct sensitivity and tipping-point analyses to evaluate the robustness of conclusions to small changes in assumptions or observed event counts.
+
+# GitHub
+Shiny:
+
+<a href="https://github.com/FilipMKgit/Margin-Jinn">github.com/FilipMKgit/Margin-Jinn</a>
+
+Poster:
+
+<a href="https://github.com/FilipMKgit/MDX_Project_Poster">github.com/FilipMKgit/MDX_Project_Poster</a>
 
 # References
