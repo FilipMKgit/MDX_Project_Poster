@@ -5,25 +5,22 @@ author:
     affil: 1
   - name: Filip Kłosowski
     affil: 1
-bibliography: References.bib
-csl: african-online-scientific-information-systems-nlm-vancouver.csl
 affiliation:
   - num: 1
     address: School of Mathematical and Statistical Sciences, University of Galway
 logoleft_name: logo2UG.png
 
-
 poster_height: "594mm"
 poster_width: "841mm"
-column_numbers: 4
-column_margins: "0.5in"	
-primary_colour:	"#5A3A6E"	# Secondary colour use for poster design.
-secondary_colour:	"#a80050"	# Main colour used for poster design.
-accent_colour:	"#a80050"	# A third colour option.
+column_numbers: 5
+column_margins: "0.5in"
+primary_colour:	"#5A3A6E"	
+secondary_colour:	"#a80050"	
+accent_colour:	"#a80050"
 author_textcol: "white"
-title_textsize: "80pt"
-author_textsize: "50pt"
-body_textsize: "25pt"
+title_textsize: "72pt"
+author_textsize: "44pt"
+body_textsize: "22pt"
 output: 
   posterdown::posterdown_html:
     self_contained: true
@@ -31,8 +28,23 @@ output:
     number_sections: false
 knit: pagedown::chrome_print
 ---
+<style>
+p {
+  line-height: 1.30;
+  margin-top: 0.30em !important;
+  margin-bottom: 0.55em !important;
+}
+
+.section h1 + p,
+.section h2 + p,
+.section h3 + p {
+  margin-top: 0.3em !important;
+}
+</style>
+
 
 ```{css, echo=FALSE}
+
 
 .logo-left img {
   height: 50px;
@@ -43,6 +55,16 @@ knit: pagedown::chrome_print
 div.poster_title{
   width: 80%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.poster_author,
+.poster_affiliation {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section h4 {
@@ -50,30 +72,24 @@ div.poster_title{
 }
 
 div.footnotes {
-  font-size: 18pt;
+  font-size: 16pt;
 }
 
-img.stent_banner{
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  opacity: 0.85;
-  margin: 8mm 0 6mm 0;
-  display: block;
+.section h1 { font-size: 42pt; }
+.section h2 { font-size: 36pt;
+  margin-top: 0.6em;
+  margin-bottom: 0.35em;}
+.section h3 { font-size: 30pt; }
+
+table {
+  border: 2px solid #444;
 }
 
-img.margin-jinn-logo{
-  display: block;
-  width: 50%;
-  max-width: 50%;
-  height: auto;
-  margin: 10mm auto 0 auto;
-  opacity: 0.95;
+table th {
+  border-bottom: 2px solid #444;
 }
 
-
-
-
+a { overflow-wrap: anywhere; }
 
 ```
 
@@ -114,15 +130,15 @@ tbl_safety <- tibble::tibble(
 
 tbl_efficacy <- tibble::tibble(
   Endpoint = c(
-    "Rutherford\nClassification Change\n(12 months)",
-    "Rutherford\nClassification Change\n(12 months)"
+    "Rutherford Classification Change (12 months): Improved or No Change",
+    "Rutherford Classification Change (12 months): Increase by One Class"
   ),
-  Outcome = c("Improved or\nNo Change", "Increase by\nOne Class"),
   `Pooled\nEstimate` = c("0.9583", "0.0441"),
   `95% CI` = c("[0.8786,\n0.9865]", "[0.0143,\n0.1280]"),
   `Recommended\nPerformance Goal` = c("87%", "1%"),
   `Justifiable\nRange` = c("87–99%", "1–13%")
 )
+
 
 #styling
 
@@ -130,9 +146,9 @@ make_col_table <- function(df, header_col, body_col) {
   kbl(df, format = "html", escape = FALSE, align = "c") %>%
     kable_styling(
       full_width = TRUE,
-      bootstrap_options = c("condensed"),
+      bootstrap_options = c("striped"),
       position = "center",
-      font_size = 18
+      font_size = 16
     ) %>%
     row_spec(0, bold = TRUE, color = "white", background = header_col) %>%
     row_spec(1:nrow(df), background = body_col) %>%
@@ -142,39 +158,57 @@ make_col_table <- function(df, header_col, body_col) {
 ```
 
 
-# Background
-Non-inferiority (NI) trials are increasingly used in clinical research [@sandie2022ni; @cuzick2022interpreting]. However, they are frequently poorly designed and interpreted. Common sources of confusion include the specification of NI margins, selection of appropriate active controls, and interpretation of statistical conclusions, which can lead to adverse consequences for manufacturers, clinicians, and the wider public.
+# Background 
+Non-Inferiority (NI) trials are increasingly used in clinical research, especially when the placebo is unethical and when new treatments aim for similar efficacy with other advantages [^1][^2]. However, they are frequently poorly designed and interpreted. Confusion arises around the specification of NI margins, selection of appropriate active controls and interpretation of statistical conclusions. This may lead to adverse consequences for manufacturers, clinicians and the wider public.
 
 *What is a Non-Inferiority Trial?*
 
-- **Non-Inferiority Trials:** Clinical studies designed to demonstrate a new treatment is not clinically worse than an active control by more than a pre-specified margin [@fda2016ni].
+- **Non-Inferiority Trials:** Clinical studies designed to demonstrate a new treatment is not clinically worse than an active control by more than a pre-specified margin.
 
-- **Non-Inferiority Margin (Δ):** Pre-specified & approved threshold the new treatment must meet to prove it preserves a clinically meaningful portion of the active control's effect [@cuzick2022interpreting].
+- **Non-Inferiority Margin (Δ):** Pre-specified and approved threshold the new treatment must meet to prove it preserves a clinically meaningful portion of the active control's effect [^3].
 
-- NI Trials typically run like a randomised control trial but comparing the new treatment with an **active control-** an established standard of care used, instead of a placebo.
+- NI Trials typically run like randomised control trials but compare the new treatment with an **active control**; an established standard of care used.
 
-- NI must show the new treatment’s estimated effect, along with its confidence interval, lies within the pre-specified NI margin.
+- NI must show the new treatment’s estimated effect, along with its Confidence Interval (CI), lies within the pre-specified NI margin.
 
-## Aims & Objectives
-1. To justify the Δ using historical evidence.
-2. To develop and assess appropriate NI trial design parameters.
-3. To develop a Shiny application for exploring sample size requirements.
-4. To analyse simulated data and evaluate NI conclusions.
-5. To examine the assumptions and limitations of NI designs.
+[^1]: Cuzick & Sasieni, 2022. , doi: 10.1038/s41416-022-01937-w
+[^2]: Sandie et al., 2022, doi: 10.1186/s13063-022-06118-x
 
+# Aims & Objectives
+1. Justify the Δ using historical evidence.
+2. Design and assess appropriate NI trial design parameters.
+3. Develop a Shiny application for exploring sample size requirements.
+4. Analyse simulated data and evaluate NI conclusions.
+5. Examine the assumptions and limitations of NI designs.
 
-# Case-study: Biomimics 3D stent
-It is 2008 and we have just been hired as statisticians for BioMimics 3D Vascular Stent’s pivotal NI trial:
+# Biomimics 3D Stent
+It's 2008 and we have just been hired as statisticians for BioMimics 3D Vascular Stent’s pivotal NI trial:
 
-<img src="BM3D_image.png" style="width:30%; display:block; margin:10px auto;">
+<img src="BM3D_image.png"
+     style="
+       width:75%;
+       display:block;
+       margin:12px auto;
+       border:2px solid #5A3A6E;
+       border-radius:10px;
+       box-shadow:0 5px 12px rgba(0,0,0,0.16);
+       background:white;
+       padding:3px;
+     ">
 
-The BioMimics 3D stent is a peripheral vascular stent implanted in the leg or arm to improve blood flow in patients with peripheral vascular disease (narrowing of the peripheral blood vessels). Unlike conventional straight stents, it features a three-dimensional helical design, intended to improve vascular performance and blood flow in affected vessels.
+The BioMimics 3D stent is a peripheral vascular stent implanted in the leg to improve blood flow in patients with peripheral vascular disease (narrowing of the peripheral blood vessels). Unlike conventional straight stents, it features a 3D helical design, intended to improve vascular performance and blood flow to affected vessels.
 
-From a statistical perspective, this study is not a traditional two-arm NI trial, but a single-arm trial evaluated against a fixed Performance Goal (PG). In medical device development, particularly For implantable medical devices, two-arm non-inferiority trials are often impractical due to cost, extended timelines, and challenges with recruitment and blinding. In such settings, regulators may accept a single-arm design, provided that the device’s observed performance, together with its confidence interval, exceeds a pre-specified PG within an agreed non-inferiority margin.
+From a statistical perspective, this study is a single arm trial evaluated against a fixed Performance Goal (PG) yet many of the same principles of an NI trial apply. Such trials are commonplace for demonstrating NI in medical devices due to cost, extended timelines and challenges with recruitment and blinding. Strictly speaking they are no different than a single arm trial against a fixed endpoint. The similarity to an NI trial is that the endpoint *(i.e. the PG)* is chosen to represent a ‘worst case’ for safety (or efficacy) to claim NI. As such, many NI trials reported are actually single arm trials with a performance goal.
 
-The PG and corresponding NI margins are derived from a random-effects meta-analysis of safety and effectiveness outcomes from existing, approved comparator devices. For safety, the margin is set at the upper bound of the 95% confidence interval, representing the maximum acceptable level of harm. For efficacy, the margin is set at the lower bound of the 95% confidence interval, representing the minimum clinical benefit that must be preserved. Crossing either bound results in failure to demonstrate NI.
+We derived the PG and the corresponding NI margins by settings safety and efficacy endpoints using a targeted literature review and previous meta-analysis [^3][^4][^5]. This was done using IPA statistics and applying a random-effects model.
 
-Our project involves working with BioMimics’ lead scientist, to design, assess, and interpret this trial from a statistician’s perspective. This includes:
+[^3]: FDA, 2022. , 2016 https://www.fda.gov/media/78504/download
+[^4]: Werk et al. , 2008. , doi: 10.1161/CIRCULATIONAHA.107.735985
+[^5]: Tepe et al. , 2008. , doi: 10.1056/NEJMoa0706356
+
+For safety, the margin is set at the upper bound of the 95% CI, representing the maximum acceptable level of harm. For efficacy, the margin is set at the lower bound of the 95% CI, representing the minimum clinical benefit that must be preserved. Crossing either bound results in failure to demonstrate NI.
+
+Our project involves working with BioMimics’ lead scientist, to design, assess and interpret this trial from a statistician’s perspective. This includes:
 
 - Defining and justifying appropriate safety and efficacy endpoints.
 
@@ -182,59 +216,75 @@ Our project involves working with BioMimics’ lead scientist, to design, assess
 
 - Selecting valid analysis methods.
 
-- Correctly interpreting and communicating non-inferiority conclusions.
+- Correctly interpreting and communicating NI conclusions.
 
-
-# Meta-Analysis & Evidence base
+## Meta-Analysis
 
 Prior to being available on the market all medical products must obtain approval from the relevant regulatory authority. This is done through a series of clinical studies where the medical product is monitored for safety and effectiveness.
 
-Initially, a feasibility study is conducted. This is a small, single-arm prospective study for a narrowly defined patient population, designed to ensure preliminary safety and device performance. If successful, a pivotal clinical study is proposed. Our pivotal study is a single-arm objective performance goal study which requires pre-specified and approved primary efficacy and safety endpoints. These endpoints must be statistically justified, adequately powered, and grounded in clinical evidence of safety and benefit in the target population.
-
-<h3>Evidence-Based Safety Performance Goals (30 Days)</h3>
-*Safety Endpoint: Must be able to identify potential harm, including any adverse events (AEs), serious adverse events (SAEs), lab abnormalities, or physical changes [@fda2016ni].*
+Initially, a feasibility study is conducted. If successful, a pivotal study is proposed. Our pivotal study is a single-arm PG trial. The PG and NI margin must be statistically justified, adequately powered and grounded in clinical evidence.
 
 ```{r}
 #safety table insert
-make_col_table(tbl_safety, header_col = "#D371C7", body_col = "#F2D2ED")
+make_col_table(
+  tbl_safety,
+  header_col = "#9C1C6B",  
+  body_col   = "#F6C1DE"
+)
 ```
-
-
-<h3>Evidence-Based Efficacy Performance Goals (12 Months)</h3>
-*Efficacy: The treatment's capacity to produce a desired, measurable, and beneficial therapeutic effect under ideal and strictly controlled conditions [@fda2016ni].*
 
 ```{r}
 #efficacy table insert
-make_col_table(tbl_efficacy, header_col = "#ECD315", body_col = "#FDFADF")
+make_col_table(
+  tbl_efficacy,
+  header_col = "#C9A400", 
+  body_col   = "#FFF1A8"  
+)
+
 ```
 
+# Sample Size
+The sample size was calculated for the safety outcome.  Based on an estimated safety proportion of 0.95 a sample size of n = 219 had 90% power based on a one-sided test for a binomial at the $\alpha=0.025$ significance level to declare NI against a PG for safety of 0.89. The sample size was determined via Monte Carlo simulation using a Wilson exact test for a binomial.
 
-To determine appropriate safety and efficiency endpoints for the Biomimics pivotal study we conducted a targeted literature review of clinical trials previously run involving peripheral vascular devices. This included a meta-analysis which we analysed & utilized at an individual participant data (IPD) level to justify our chosen endpoints [@werk2008paclitaxel; @tepe2008local; @rocha2007performance].
+## Shiny Application
+As part of the sample size calculation we created an interactive Shiny application to support statistical planning for this trial and future trials of the same nature. The app allows users to explore how sample size requirements vary under different design assumptions, including power, significance level, effect size, and choice of CI method.
 
-## Sample Size Determination
-With performance goals fixed, sample size was calculated for freedom from 30-day TVR using a single-arm performance-goal framework. NI was assessed using a one-sided CI-based decision rule (α = 0.025, power = 90%), with p₀ = 0.89 derived from historical evidence and expected performance p₁ = 0.95 based on the pooled estimate. A margin of Δ = 0 was used, reflecting no allowance beyond the pre-specified performance goal. Sample size was determined via Monte Carlo simulation using Wilson confidence intervals, chosen to avoid overly conservative intervals when success rates are high. Under these assumptions, the required total sample size was n = 219.
+<img src="appsc.JPG"
+     style="
+       width:110%;
+       display:block;
+       margin:20px auto;
+       margin-left:-5%;
+       border:3px solid #5A3A6E;
+       border-radius:12px;
+       background:white;
+       padding:6px;
+       filter: brightness(1.05) contrast(1.05);
+     ">
 
-# Margin-Jinn
-Margin-Jinn is an interactive Shiny application developed as part of this project to support statistical planning for NI trials. The app allows users to explore how sample size requirements vary under different design assumptions, including power, significance level, effect size, and choice of confidence-interval method.
 
-<img src="appsc.JPG" style="width:100%; display:block; margin:10px auto;">
+There are multiple approaches to derive interval estimates for proportions (e.g. Clopper–Pearson, Wilson, Agresti–Coull) each resulting in different width in the corresponding confidence intervals. This helps identify which approach may be optimal depending on the design parameters for the trial in question.
 
-Multiple approaches to interval estimation for proportions (e.g. Clopper–Pearson, Wilson, Agresti–Coull) are supported, enabling evaluation of how methodological choices influence NI conclusions, particularly in single-arm trials with small sample sizes and low event rates.
+# GitHub
 
-In this study, Margin-Jinn is applied to the BioMimics 3D case study to justify and critically assess sample size decisions under realistic design scenarios.
+Shiny:
 
-GitHub:
-https://github.com/FilipMKgit/Margin-Jinn
+<a href="https://github.com/FilipMKgit/Margin-Jinn">github.com/FilipMKgit/Margin-Jinn</a>
+
+Poster:
+
+<a href="https://github.com/FilipMKgit/MDX_Project_Poster">github.com/FilipMKgit/MDX_Project_Poster</a>
+
 
 # Next Steps
+- Carry out an extensive simulation study to compare the different approaches available to generate a CI for a population proportion in single arm medical device trials. 
 
-- Extend the BioMimics 3D case study through simulation of NI trial data under the defined Performance Goals.
+- Calculate the sample size needed for Efficacy assuming a gate-keeping approach for joint outcomes. 
 
-- Finalise a Statistical Analysis Plan (SAP) specifying endpoints, estimators, confidence-interval methods, and NI decision rules prior to data unblinding.
+- Calculate the sample size needed for Safety and Efficacy if an interim analysis is required. 
 
-- Analyse simulated trial outcomes to assess NI conclusions under alternative assumptions.
+- Finalise a Statistical Analysis Plan (SAP) specifying endpoints, estimators, CI methods, and NI decision rules prior to data unblinding.
 
 - Conduct sensitivity and tipping-point analyses to evaluate the robustness of conclusions to small changes in assumptions or observed event counts.
-
 
 # References
