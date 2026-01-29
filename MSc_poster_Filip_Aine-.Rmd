@@ -244,7 +244,7 @@ make_col_table(
 ```
 
 # Sample Size
-The sample size was calculated for the safety outcome.  Based on an estimated safety proportion of 0.95 a sample size of n = 174 had 80% power based on a one-sided test for a binomial at the $\alpha=0.025$ significance level to declare NI against a PG for safety of 0.89. The sample size was determined via Monte Carlo simulation using a Wilson score CI-based decision rule.
+The sample size was calculated for the safety outcome.  Based on an estimated safety proportion of 0.95 a sample size of **n = 174** had 80% power based on a one-sided test for a binomial at the $\alpha=0.025$ significance level to declare NI against a PG for safety of 0.89. The sample size was determined via Monte Carlo simulation using a Wilson score CI-based decision rule.
 
 ## Shiny Application
 As part of the sample size calculation we developed an interactive Shiny application to support statistical planning for this trial and future trials of the same nature. The application allows users to explore how sample size requirements vary under different design assumptions, including power, significance level, effect size, and choice of CI method.
