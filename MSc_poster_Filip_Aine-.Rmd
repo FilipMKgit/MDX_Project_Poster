@@ -159,7 +159,7 @@ make_col_table <- function(df, header_col, body_col) {
 
 
 # Background 
-Non-Inferiority (NI) trials are increasingly used in clinical research, especially when the placebo is unethical and when new treatments aim for similar efficacy with other advantages [^1][^2]. However, they are frequently poorly designed and interpreted. Confusion arises around the specification of NI margins, selection of appropriate active controls and interpretation of statistical conclusions. This may lead to adverse consequences for manufacturers, clinicians and the wider public.
+Non-Inferiority (NI) trials are increasingly used in clinical research, especially when a placebo is unethical and when new treatments aim for similar efficacy with other advantages [^1][^2]. However, they are frequently poorly designed and interpreted. Confusion arises around the specification of NI margins, selection of appropriate active controls and interpretation of statistical conclusions. This may lead to adverse consequences for manufacturers, clinicians and the wider public.
 
 ***What is a Non-Inferiority Trial?***
 
@@ -200,7 +200,7 @@ The BioMimics 3D stent is a peripheral vascular stent implanted in the leg to im
 
 From a statistical perspective, this study is a single arm trial evaluated against a fixed Performance Goal (PG). Such trials are commonplace for demonstrating NI in medical devices due to cost, extended timelines and challenges with recruitment and blinding. Strictly speaking they are no different than a single arm trial against a fixed endpoint. The similarity to an NI trial is that the endpoint *(i.e. the PG)* is chosen to represent a ‘worst case’ for safety (or efficacy) to claim NI. As such, many NI trials reported are actually single arm trials with a PG.
 
-We derived the PG and the corresponding NI margins by settings safety and efficacy endpoints using a targeted literature review and previous meta-analysis[^3][^4][^5]. This was done using IPA statistics and applying a random-effects model.
+We derived the PG and the corresponding NI margins by setting safety and efficacy endpoints using a targeted literature review and previous meta-analysis[^3][^4][^5]. This was done using IPA statistics and applying a random-effects model.
 
 [^3]: FDA, 2022. , 2016 https://www.fda.gov/media/78504/download
 [^4]: Werk et al. , 2008. , doi: 10.1161/CIRCULATIONAHA.107.735985
@@ -278,12 +278,28 @@ The application supports multiple CI–based decision rules. Exploratory analyse
 - Conduct sensitivity and tipping-point analyses to evaluate the robustness of conclusions to small changes in assumptions or observed event counts.
 
 # GitHub
+<p>
+Meta-Analysis:
+
+<a href="https://github.com/FilipMKgit/MDX_Meta-Analysis">
+github.com/FilipMKgit/MDX_Meta-Analysis
+</a>
+</p>
+
+<p>
 Shiny:
 
-<a href="https://github.com/FilipMKgit/Margin-Jinn">github.com/FilipMKgit/Margin-Jinn</a>
+<a href="https://github.com/FilipMKgit/Margin-Jinn">
+github.com/FilipMKgit/Margin-Jinn
+</a>
+</p>
 
+<p>
 Poster:
 
-<a href="https://github.com/FilipMKgit/MDX_Project_Poster">github.com/FilipMKgit/MDX_Project_Poster</a>
+<a href="https://github.com/FilipMKgit/MDX_Project_Poster">
+github.com/FilipMKgit/MDX_Project_Poster
+</a>
+</p>
 
 # References
